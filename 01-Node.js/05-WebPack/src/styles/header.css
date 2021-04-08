@@ -1,0 +1,10 @@
+.header {
+    background: rgb(28, 2, 39);
+    height: 100px;
+    padding-top: 30px;
+    text-align: center;
+}
+
+.header__content {
+    color: aliceblue;
+}

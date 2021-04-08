@@ -1,0 +1,25 @@
+.blocks {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.block {
+    border: 5px solid black;
+    height: 500px;
+    width: 500px;
+    margin: 60px;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    width: 500px;
+    height: 500px;
+}
+
+.block__info {
+    background-color: black;
+    color: blanchedalmond;
+    font-size: 18pt;
+}
