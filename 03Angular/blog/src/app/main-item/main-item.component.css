@@ -1,0 +1,27 @@
+.main-item {
+    background-color: rgb(227, 236, 240);
+    width: 400px;
+}
+
+.main-item__header {
+    background-color: rgb(25, 150, 199);
+    padding: 10px;
+}
+
+.main-item__header h2 {
+    margin: 0;
+}
+
+.main-item__content {
+    padding: 20px;
+}
+
+.main-item__footer {
+    background-color: rgb(29, 98, 126);
+    padding: 5px;
+}
+
+.main-item__footer p {
+    text-align: right;
+    margin: 0 10px;
+}

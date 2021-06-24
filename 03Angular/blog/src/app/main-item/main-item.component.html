@@ -1,0 +1,30 @@
+<!-- <h2>{{mainItem.name}} Details</h2> -->
+<!-- <div><span>id: </span>{{mainItem.id}}</div>
+<div><span>content: </span>{{mainItem.content}}</div>
+<div><span>footer: </span>{{mainItem.footer}}</div> -->
+
+
+<ul class="mainItems">
+    <li *ngFor="let mainItem of mainItems" [class.selected]="mainItem === selectedItem" (click)="onSelect(mainItem)">
+        <span class="badge">{{mainItem.id}}</span> {{mainItem.name}}
+
+    </li>
+</ul>
+
+<div *ngIf="selectedItem">
+    <div>
+        <div class="main-item">
+            <div class="main-item__header">
+                <h2>{{selectedItem.name}}</h2>
+            </div>
+            <div class="main-item__content">
+                <p>{{selectedItem.content}}</p>
+            </div>
+            <div class="main-item__footer">
+                <p>{{selectedItem.footer}}</p>
+            </div>
+
+        </div>
+    </div>
+
+</div>
