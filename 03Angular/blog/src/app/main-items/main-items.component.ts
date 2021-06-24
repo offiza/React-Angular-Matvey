@@ -1,0 +1,37 @@
+import { Component, OnInit } from '@angular/core';
+import { MainItem } from '../mainItem';
+import { MainItemService } from '../main-item.service';
+import { MessageService } from '../message.service';
+
+
+@Component({
+  selector: 'app-main-item',
+  templateUrl: './main-items.component.html',
+  styleUrls: ['./main-items.component.css']
+})
+
+export class MainItemComponent implements OnInit {
+  mainItems: MainItem[] = [];
+  selectedItem?: MainItem;
+
+  constructor(private mainItemService: MainItemService, private messageService: MessageService) { }
+
+  ngOnInit() {
+    this.getMainItems();
+  }
+
+  onSelect(mainItem: MainItem): void {
+    this.selectedItem = mainItem;
+    mainItem.hidden = !mainItem.hidden
+    this.messageService.add(`MainItemComponent: Selected mainItem id=${mainItem.id}`);
+  }
+
+  getMainItems(): void {
+    this.mainItemService.getMainItems()
+        .subscribe(mainItems => this.mainItems = mainItems);
+  }
+
+  openArticle(mainItem: MainItem) : void{
+    
+  }
+}

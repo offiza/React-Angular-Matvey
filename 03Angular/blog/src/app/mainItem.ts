@@ -3,4 +3,5 @@ export interface MainItem {
     name: string;
     content: string;
     footer: string;
+    hidden ?: boolean | true;
 }

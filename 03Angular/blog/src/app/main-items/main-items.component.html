@@ -1,0 +1,16 @@
+<div class="cont">
+    <div class="container" *ngFor="let mainItem of mainItems" [class.selected]="mainItem === selectedItem" (click)="onSelect(mainItem)">
+        <div class="main-item">
+            <div class="main-item__header">
+                <h2>{{mainItem.name}}</h2>
+            </div>
+            <div *ngIf="mainItem.hidden == true;" class="main-item__content">
+                <p>{{mainItem.content}}</p>
+                <button class="shine-button" (click)="openArticle(mainItem)">Read More</button>
+            </div>
+            <div class="main-item__footer">
+                <p>{{mainItem.footer}}</p>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,17 @@
+.navbar {
+    background-color: tomato;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    height: 50px;
+    z-index: 50;
+}
+
+.navbar a {
+    margin: 10px;
+    text-decoration: none;
+    color: black;
+    font-size: large;
+    position: relative;
+    top: 16px;
+}

@@ -4,12 +4,18 @@ import { FormsModule } from '@angular/forms'; // <-- NgModel lives here
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { MainItemComponent } from './main-item/main-item.component';
+import { MainItemComponent } from './main-items/main-items.component';
+import { MainItemDetailComponent } from './main-item-detail/main-item-detail.component';
+import { AboutComponent } from './about/about.component';
+import { ArticleComponent } from './article/article.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MainItemComponent
+    MainItemComponent,
+    MainItemDetailComponent,
+    AboutComponent,
+    ArticleComponent
   ],
   imports: [
     BrowserModule,
