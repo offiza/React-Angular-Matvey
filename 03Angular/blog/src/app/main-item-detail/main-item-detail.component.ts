@@ -23,7 +23,5 @@ export class MainItemDetailComponent implements OnInit {
         }
       });
     });
-
   }
-
 }

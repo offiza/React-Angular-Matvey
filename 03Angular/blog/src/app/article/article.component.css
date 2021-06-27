@@ -1,0 +1,44 @@
+.container {
+    width: 75%;
+    min-width: 250px;
+    max-width: 800px;
+    margin: 60px auto;
+}
+
+.article {
+    padding: 10px;
+}
+
+.article__header {
+    text-align: center;
+    background-color: rgb(252, 106, 80);
+    padding: 5px;
+}
+
+.article__header p {
+    font-weight: 700;
+    font-size: 24pt;
+    color: white;
+}
+
+.article__content {
+    background-color: rgb(255, 233, 230);
+    padding: 10px;
+}
+
+.article__content p {
+    font-size: large;
+}
+
+.article__footer {
+    padding: 5px;
+    height: 22px;
+    background-color: rgb(252, 106, 80);
+}
+
+.article__footer p {
+    font-weight: 400;
+    font-size: 14pt;
+    color: white;
+    float: right;
+}
