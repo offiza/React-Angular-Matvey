@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { MainItem } from '../mainItem';
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 import { MainItemService } from '../main-item.service';
 
 @Component({
@@ -12,7 +12,7 @@ export class ArticleComponent implements OnInit {
   mainItems: MainItem[] = [];
   param?: Number = 1;
   item?: MainItem;
-  constructor(private route: ActivatedRoute, private mainItemServise: MainItemService) { }
+  constructor(private route: ActivatedRoute, private mainItemServise: MainItemService, private router: Router) { }
 
   @Input() mainItem?: MainItem;
 
@@ -64,7 +64,11 @@ export class ArticleComponent implements OnInit {
         alert(result.err);
         return;
       }
-      alert("Success!");
+      else{
+        alert("Success!");
+        this.item = result;
+      }
+
     })
   }
 }

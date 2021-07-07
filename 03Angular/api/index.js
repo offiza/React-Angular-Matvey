@@ -29,15 +29,13 @@ function getArticles() {
     }
 }
 
-function getArticleComments(id) {
-    return db.data.articles[id].comments;
-}
-
-async function postComment(id, name, text) {
+async function postComment(comment) {
     try {
-        let article = db.data.articles.find(article => article.id == id);
+        let article = db.data.articles.find(article => article.id == comment.id);
+        let name = comment.name,
+            text = comment.text;
         article.comments.push({ name, text })
-        await db.write()
+        await db.write();
         return article;
     } catch (err) {
         console.log(`<!>ERROR:\n ${err}`)
@@ -51,6 +49,20 @@ function getNextArticleId() {
     })
 
     return parseInt(article.id) + 1;
+}
+
+async function postArtcle(article) {
+    try {
+        let nextArticleId = getNextArticleId();
+        article.id = nextArticleId;
+        article.comments = [];
+        db.data.articles.push(article);
+        await db.write();
+        return article;
+    } catch (err) {
+        console.log(`<!>ERROR: (postArticle) \n ${err}`)
+        return { error: err }
+    }
 }
 
 app.get('/users', (req, res) => {
@@ -75,10 +87,19 @@ app.get('/next-article-id', (req, res) => {
 })
 
 app.put('/post-comment', async(req, res) => {
-    let result = await postComment(req.body.id, req.body.name, req.body.text);
+    let result = await postComment(req.body);
     console.log(result);
     if (result.err) {
         res.status(400).send(result.err);
+    }
+    res.status(200).send(result);
+})
+
+app.put('/post-article', async(req, res) => {
+    let result = await postArtcle(req.body);
+    console.log(result);
+    if (result.error) {
+        res.status(400).send(result.err)
     }
     res.status(200).send(result);
 })
